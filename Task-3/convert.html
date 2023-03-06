@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="convert.css">
+
+</head>
+<body>
+        <div class="background"></div>
+        <div class="converter">
+            <h1>Temperature Converter</h1>
+                <label>Fahrenheit</label><br><br>
+                <input type="number" id="fahrenheit" placeholder="Temperature in fahrenheit"><br><br>
+            
+      
+                <label>Celsius</label><br><br>
+                <input type="number" id="celsius" placeholder="Temperature in celsius"><br><br>
+            
+      
+            
+                <label>Kelvin</label><br><br>
+                <input type="number" id="kelvin" placeholder="Temperature in kelvin">
+            </div>
+      
+    <script>
+        var celsius = document.getElementById('celsius');
+        var fahrenheit = document.getElementById('fahrenheit');
+        var kelvin = document.getElementById('kelvin');
+        celsius.oninput = function () {
+            var f = (parseFloat(celsius.value) * 9) / 5 + 32;
+            fahrenheit.value = parseFloat(f.toFixed(2));
+          
+            var k = (parseFloat(celsius.value) + 273.15);
+            kelvin.value = parseFloat(k.toFixed(2));
+        }
+        fahrenheit.oninput = function () {
+            var c = ((parseFloat(fahrenheit.value) - 32) * 5) / 9;
+            celsius.value = parseFloat(c.toFixed(2));
+          
+            var k = (parseFloat(fahrenheit.value) - 32) * 5 / 9 + 273.15;
+            kelvin.value = parseFloat(k.toFixed(2));
+        }
+        kelvin.oninput = function () {
+            var f = (parseFloat(kelvin.value) - 273.15) * 9 / 5 + 32;
+            fahrenheit.value = parseFloat(f.toFixed(2));
+          
+            var c = (parseFloat(kelvin.value) - 273.15);
+            celsius.value = parseFloat(c.toFixed(2));
+        }
+    </script>
+    
+</body>
+</html>
